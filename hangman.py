@@ -1,5 +1,5 @@
 
-hangmanword = "water"
+hangmanword = "dinosaur"
 letterlist = list(hangmanword)
 triedlist =[]
 lives = 0
@@ -10,20 +10,20 @@ for i in letterlist:
     displaylist.append("_")
 
 
-def letterguess():
+def letterguess():# guess a letter
     global letterlist
     global lives
     guess = input("Guess a letter : ")
     counter = 0
     y =0
-    for i in letterlist:
+    for i in letterlist:# guess right letter
         if guess == i:
             displaylist.pop(counter)
             displaylist.insert(counter,guess)
             y = 1
         counter = counter + 1
     if y == 0:
-        triedlist.append(guess)
+        triedlist.append(guess)# pick wrong letter
         lives = lives +1
         print("The letter is not part of word")
 
@@ -35,11 +35,11 @@ while x == True:
     print(triedlist)
     print(HANGMANPICS[lives])
     if lives == 6:
-        print("you lose")
+        print("you lose") #lose screen
         break
 
     elif "_" not in displaylist:
-        print("you win")
+        print("you win") #win screen
         break
 
 
